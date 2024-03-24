@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: globo-deployment
+  labels:
+    app: globo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: globoapp
+  template:
+    metadata:
+      labels:
+        app: globoapp
+    spec:
+      containers:
+      - name: globoapp
+        image: 992382367981.dkr.ecr.us-east-1.amazonaws.com/globamantix:latest
+        ports:
+        - containerPort: 3000
